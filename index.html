@@ -67,11 +67,37 @@ img{max-width:100%}
 .nav a:hover{background:#f5f5f5;color:var(--red)}
 .nav a.active{color:var(--red);border-bottom-color:var(--red)}
 
-/* ── BRANDS ── */
-.brands{height:105px;max-width:1200px;margin:auto;display:flex;align-items:center;gap:45px;justify-content:space-between;padding:0 24px;overflow:hidden}
-.brand{font-weight:900;font-style:italic;font-size:22px;letter-spacing:-1px;white-space:nowrap;filter:grayscale(1);opacity:.6;transition:.3s}
-.brand:hover{filter:grayscale(0);opacity:1}
-.brand small{display:block;font-size:7px;text-align:center;letter-spacing:1px}
+/* ══════ BANNER DE MARCAS — MARQUESINA CONTINUA ══════ */
+.brands{background:#f7f9fa;padding:24px 0;overflow:hidden;position:relative;border-bottom:1px solid #eee}
+.brands::before,.brands::after{content:"";position:absolute;top:0;bottom:0;width:70px;z-index:2;pointer-events:none}
+.brands::before{left:0;background:linear-gradient(90deg,#f7f9fa,transparent)}
+.brands::after{right:0;background:linear-gradient(-90deg,#f7f9fa,transparent)}
+.brands-track{display:flex;width:max-content;animation:marquee 45s linear infinite}
+.brands:hover .brands-track{animation-play-state:paused}
+@keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.brands-group{display:flex;align-items:center;gap:70px;padding-right:70px;flex-shrink:0}
+.b-item{flex:0 0 auto;white-space:nowrap;font-weight:900;font-style:italic;font-size:24px;letter-spacing:-1px;color:#111;display:flex;flex-direction:column;align-items:center;justify-content:center;line-height:1;opacity:.85;transition:.3s;cursor:default}
+.b-item:hover{opacity:1;transform:scale(1.06)}
+.b-item small{font-size:7px;letter-spacing:1.5px;font-weight:700;font-style:normal;margin-top:4px;text-align:center}
+/* Estilos por marca (imitando logos) */
+.b-mitas{font-style:italic;font-weight:900}
+.b-mobius{font-weight:300;font-style:normal;letter-spacing:3px}
+.b-otras{font-style:italic}
+.b-otras .boxm{background:#111;color:#fff;padding:2px 9px;transform:skewX(-12deg);display:inline-block;margin-left:4px}
+.b-protaper .frame{border:3px solid #111;padding:3px 12px;transform:skewX(-8deg);display:inline-block;font-weight:900;font-style:italic}
+.b-proteam .tm{background:#22c55e;color:#fff;padding:1px 9px;transform:skewX(-12deg);display:inline-block;margin-left:3px}
+.b-rabaconda .rlogo{color:#22c55e;font-size:18px;margin-bottom:3px;display:inline-block;transform:rotate(45deg)}
+.b-rabaconda{font-style:normal;font-weight:800}
+.b-hiflo .gr{color:#22c55e}
+.b-jado{font-weight:900}
+.b-jt{font-weight:900;letter-spacing:-2px}
+.b-kewiq{font-style:normal;font-weight:800;letter-spacing:1px}
+.b-lucas{color:#e01111;font-style:italic}
+.b-coocase{font-style:normal;font-weight:800;letter-spacing:4px}
+.b-diafrag .dia{font-size:14px;margin-left:4px;vertical-align:middle}
+.b-excel{font-style:italic;font-weight:900}
+.b-renthal{font-weight:900;letter-spacing:1px}
+.b-ufo{font-weight:900;letter-spacing:2px}
 
 /* ── HERO / CAROUSEL ── */
 .hero{max-width:1240px;margin:auto;height:300px;position:relative;overflow:hidden}
@@ -92,7 +118,6 @@ img{max-width:100%}
 .section-title{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;flex-wrap:wrap;gap:15px}
 .section-title h2{font-size:22px;font-style:italic;font-weight:950}
 .section-title .count{font-size:13px;color:var(--muted)}
-.more{background:var(--red);color:#fff;padding:7px 14px;font-weight:900;font-style:italic;border:0;cursor:pointer}
 
 /* ── SMART FILTERS ── */
 .smart-filters{display:flex;gap:8px;margin-bottom:20px;flex-wrap:wrap;align-items:flex-start}
@@ -113,7 +138,7 @@ img{max-width:100%}
 .tag{display:inline-flex;align-items:center;gap:5px;padding:4px 10px;background:#fef5f5;border:1px solid #fcc;border-radius:14px;font-size:11px;color:var(--red);font-weight:600}
 .tag button{background:none;border:0;color:var(--red);cursor:pointer;font-size:14px;line-height:1}
 
-/* ── SIDEBAR CATEGORIES ── */
+/* ── SIDEBAR ── */
 .main-layout{display:flex;gap:24px;max-width:1200px;margin:20px auto 0;padding:0 12px}
 .sidebar{width:240px;flex-shrink:0}
 .sidebar-section{margin-bottom:20px}
@@ -151,8 +176,8 @@ img{max-width:100%}
 .buy:hover{background:#12a54a}
 .buy.out{background:var(--yellow);cursor:not-allowed}
 .tax{font-size:8px;text-align:right;color:#777;margin-top:3px}
-.out-badge{position:absolute;left:0;top:0;background:var(--red);color:#fff;font-size:9px;padding:3px 8px;border-radius:0 0 8px 0;font-weight:700}
-.new-badge{position:absolute;right:0;top:0;background:#11bce0;color:#fff;font-size:9px;padding:3px 8px;border-radius:0 0 0 8px;font-weight:700}
+.out-badge{position:absolute;left:0;top:0;background:var(--red);color:#fff;font-size:9px;padding:3px 8px;border-radius:0 0 8px 0;font-weight:700;z-index:2}
+.feat-badge{position:absolute;right:0;top:0;background:var(--yellow);color:#000;font-size:9px;padding:3px 8px;border-radius:0 0 0 8px;font-weight:800;z-index:2}
 
 /* ── PAGINATION ── */
 .pagination{display:flex;justify-content:center;gap:6px;margin:30px 0;flex-wrap:wrap}
@@ -161,12 +186,9 @@ img{max-width:100%}
 .pagination button.active{background:var(--red);color:#fff;border-color:var(--red)}
 .pagination button:disabled{opacity:.4;cursor:default}
 
-/* ── DIVIDER ── */
+/* ── DIVIDER / LIQUIDACIÓN ── */
 .divider{max-width:505px;margin:40px auto 25px;background:#050505;color:#fff;text-align:center;font-size:22px;font-weight:900;font-style:italic;padding:5px}
-
-/* ── LIQUIDATION ── */
-.liquidation{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;max-width:1200px;margin:auto;padding:0 12px}
-.liquidation img{width:100%;height:190px;object-fit:cover;filter:grayscale(1);border-radius:4px}
+.rtech-wrap{max-width:1200px;margin:auto;padding:0 12px}
 
 /* ── CATEGORIES GRID ── */
 .categories{margin-top:45px;background:#f5f5f5;padding:38px 0}
@@ -222,12 +244,13 @@ footer a:hover{color:var(--red)}
 .no-results{text-align:center;padding:60px 20px;color:var(--muted)}
 .no-results i{font-size:48px;margin-bottom:15px;display:block;color:#ddd}
 
-/* ── RESPONSIVE ── */
+/* ══════ RESPONSIVO TOTAL ══════ */
 @media(max-width:1000px){
   .sidebar{display:none}
   .products{grid-template-columns:repeat(3,1fr)}
-  .brands{gap:20px}
   .footer-inner{grid-template-columns:1fr 1fr}
+  .brands-group{gap:50px;padding-right:50px}
+  .b-item{font-size:20px}
 }
 @media(max-width:650px){
   .header-main{height:auto;padding:14px;flex-wrap:wrap}
@@ -235,17 +258,26 @@ footer a:hover{color:var(--red)}
   .search-wrapper{order:3;flex-basis:100%}
   .header-actions{margin-left:auto}
   .nav-inner{justify-content:flex-start}
-  .brands{height:80px}
-  .brand:nth-of-type(n+4){display:none}
   .hero{height:200px}
   .products{grid-template-columns:repeat(2,1fr);gap:10px}
   .product{min-height:340px}
-  .liquidation{grid-template-columns:1fr}
   .cat-grid{grid-template-columns:repeat(2,1fr)}
   .cart-panel{width:100%;right:-100%}
   .cart-panel.open{right:0}
   .footer-inner{grid-template-columns:1fr}
   .sf-panel{min-width:180px}
+  .brands{padding:16px 0}
+  .brands-group{gap:34px;padding-right:34px}
+  .b-item{font-size:16px}
+  .b-item small{font-size:6px}
+  .brands::before,.brands::after{width:30px}
+  .divider{font-size:16px;max-width:90%}
+}
+@media(max-width:400px){
+  .products{grid-template-columns:1fr 1fr;gap:8px}
+  .product{min-height:320px;padding:7px 8px 10px}
+  .brands-group{gap:26px;padding-right:26px}
+  .b-item{font-size:14px}
 }
 </style>
 </head>
@@ -295,14 +327,29 @@ footer a:hover{color:var(--red)}
   </nav>
 </header>
 
-<!-- ══════ BRANDS ══════ -->
+<!-- ══════ BANNER DE MARCAS — MOVIMIENTO CONTINUO ══════ -->
 <div class="brands">
-  <div class="brand">PRO TAPER<small>HANDLEBARS</small></div>
-  <div class="brand">GBS<small>MOTO PARTS</small></div>
-  <div class="brand">RENTHAL<small>COMPONENTS</small></div>
-  <div class="brand">JADO<small>SMART SYSTEMS</small></div>
-  <div class="brand">UFO<small>PLAST</small></div>
-  <div class="brand">100%<small>GOGGLES & GEAR</small></div>
+  <div class="brands-track" id="brandsTrack">
+    <div class="brands-group" id="brandsGroup">
+      <div class="b-item b-mitas">MITAS<small>MOTORCYCLE TIRES</small></div>
+      <div class="b-item b-mobius">mobius</div>
+      <div class="b-item b-otras">OTRAS<span class="boxm">MARCAS</span></div>
+      <div class="b-item b-protaper"><span class="frame">PROTAPER</span></div>
+      <div class="b-item b-proteam">PRO<span class="tm">TEAM</span></div>
+      <div class="b-item b-rabaconda"><span class="rlogo">◆</span>RABACONDA<small>RIDER DEVELOPED DESIGNS</small></div>
+      <div class="b-item b-gbs">GBS<small>moto parts</small></div>
+      <div class="b-item b-hiflo">HIFLO<span class="gr">FILTRO</span><small>PREMIUM FILTERS</small></div>
+      <div class="b-item b-jado">JADO<small>MOTO MULTIMEDIA SYSTEMS</small></div>
+      <div class="b-item b-jt">JT<small>SPROCKETS</small></div>
+      <div class="b-item b-kewiq">kewiq</div>
+      <div class="b-item b-lucas">LUCAS OIL</div>
+      <div class="b-item b-coocase">coocase</div>
+      <div class="b-item b-diafrag">DIA-FRAG<span class="dia">◆</span></div>
+      <div class="b-item b-excel">EXCEL<small>Takasago Rim</small></div>
+      <div class="b-item b-renthal">RENTHAL</div>
+      <div class="b-item b-ufo">UFO</div>
+    </div>
+  </div>
 </div>
 
 <!-- ══════ HERO CAROUSEL ══════ -->
@@ -330,39 +377,34 @@ footer a:hover{color:var(--red)}
 
 <!-- ══════ MAIN LAYOUT ══════ -->
 <div class="main-layout">
-
-  <!-- SIDEBAR -->
   <aside class="sidebar" id="sidebar"></aside>
 
-  <!-- MAIN CONTENT -->
   <div class="main-content">
-
     <div class="section-title">
       <h2 id="sectionTitle">NUESTROS PRODUCTOS</h2>
       <span class="count" id="productCount"></span>
     </div>
 
-    <!-- SMART FILTERS -->
     <div class="smart-filters" id="smartFilters"></div>
     <div class="active-tags" id="activeTags"></div>
 
-    <!-- PRODUCTS -->
     <div class="products" id="products">
       <div class="loading"><i class="fas fa-spinner"></i>Cargando productos...</div>
     </div>
 
-    <!-- PAGINATION -->
     <div class="pagination" id="pagination"></div>
   </div>
 </div>
 
-<!-- ══════ LIQUIDATION ══════ -->
+<!-- ══════ LIQUIDACIÓN — DESTACADOS RTECH ══════ -->
 <div class="divider" id="liquidacion">&gt;&gt;&gt; &nbsp; LIQUIDACIÓN &nbsp; &lt;&lt;&lt;</div>
-<section style="max-width:1200px;margin:auto;padding:0 12px">
-  <div class="liquidation">
-    <img src="https://images.unsplash.com/photo-1558981806-ec527fa84c39?auto=format&fit=crop&w=900&q=80">
-    <img src="https://images.unsplash.com/photo-1558981359-0f0460a1e3d4?auto=format&fit=crop&w=900&q=80">
-    <img src="https://images.unsplash.com/photo-1558980664-10ea44e37b0a?auto=format&fit=crop&w=900&q=80">
+<section class="rtech-wrap">
+  <div class="section-title">
+    <h2>DESTACADOS RTECH</h2>
+    <span class="count" id="rtechCount"></span>
+  </div>
+  <div class="products" id="rtechGrid">
+    <div class="loading"><i class="fas fa-spinner"></i>Cargando destacados RTECH...</div>
   </div>
 </section>
 
@@ -441,7 +483,6 @@ footer a:hover{color:var(--red)}
    FC RACING — MOTOR DE BÚSQUEDA INTELIGENTE
    ══════════════════════════════════════════ */
 
-// ── STATE ──
 let ALL = [];
 let filtered = [];
 let cart = [];
@@ -450,28 +491,17 @@ const PER_PAGE = 24;
 const WHATSAPP = '3543546389';
 
 let state = {
-  categoria: null,
-  subcategoria: null,
-  producto: null,
-  marca: null,
-  color: null,
-  talle: null,
-  terreno: null,
-  compatMoto: null,
-  stockFilter: null,
-  search: ''
+  categoria:null,subcategoria:null,producto:null,marca:null,color:null,
+  talle:null,terreno:null,compatMoto:null,stockFilter:null,search:''
 };
 
-// ── TAXONOMY MAP ──
 const TAXONOMY = {
   'ACCESORIOS MOTO': {
     'MANUBRIOS & COMANDOS': ['Manubrios','Puños','Cubre Puños','Palancas de Freno & Embrague','Aceleradores','Contrapesos & Tapones','Botones & Comandos','Palancas de Cambio'],
     'EQUIPAJE': ['Baúles / Bolsos Top Case','Alforjas & Baúles Laterales','Bolsos de Tanque','Mochilas & Estuches','Soportes, Racks & Porta Baúles / Alforjas','Repuestos Equipaje'],
     'PROTECCIONES METÁLICAS': ['Cubre Carter & Chasis','Defensas / Rejillas'],
     'ELECTRÓNICA & NAVEGACIÓN': ['Pantallas CarPlay / GPS','Porta Celular & Soportes'],
-    'ESPEJOS': [],
-    'FUNDAS DE ASIENTO': [],
-    'OTROS ACCESORIOS': []
+    'ESPEJOS': [],'FUNDAS DE ASIENTO': [],'OTROS ACCESORIOS': []
   },
   'CUBIERTAS & RUEDAS': {
     'CUBIERTAS POR TERRENO': ['Street & Custom','90/10 - Adventure Touring','70/30 - Adventure','60/40 - Dual Sport','50/50 - Trail / All-Terrain','30/70 & 20/80 - Enduro Trail XTreme','Motocross','Enduro','Rally'],
@@ -499,18 +529,11 @@ const TAXONOMY = {
   },
   'TALLER & TRANSPORTE': {},
   'CASUAL': {
-    'EXHIBIDORES': [],
-    'REMERAS': [],
-    'PANTALONES': [],
-    'LENTES': [],
-    'GORRAS, GORROS & ACCESORIOS': [],
-    'MEDIAS': [],
-    'ABRIGO': [],
-    'IMPERMEABLES & PARAGUAS': []
+    'EXHIBIDORES': [],'REMERAS': [],'PANTALONES': [],'LENTES': [],
+    'GORRAS, GORROS & ACCESORIOS': [],'MEDIAS': [],'ABRIGO': [],'IMPERMEABLES & PARAGUAS': []
   }
 };
 
-// ── UTILS ──
 const money = n => n.toLocaleString("es-AR",{minimumFractionDigits:2,maximumFractionDigits:2});
 function parsePrice(s){
   if(!s) return 0;
@@ -543,58 +566,30 @@ async function loadProducts(){
     const rows=parseCSV(csv);
     if(!rows.length)throw new Error('empty');
     const hdr=rows[0].map(h=>h.toUpperCase().trim());
-
     const col=(name)=>hdr.indexOf(name);
-    const iCat=col('CATEGORIA');
-    const iSub=col('SUBCATEGORIA');
-    const iProd=col('PRODUCTO');
-    const iMarca=col('MARCAS');
-    const iCod=col('CODIGO');
-    const iDesc=col('DESCRIPCION');
-    const iPrice=col('PRECIO');
-    const iStock=col('STOCK');
-    const iImg=col('IMAGEN');
-    const iFamily=col('FAMILIA_PRODUCTO');
-    const iAppModel=col('APLICACION_MODELO');
-    const iColor=col('COLOR');
-    const iTalle=col('TALLE');
-    const iTerr=col('TERRENO');
-    const iCompat=col('COMPATIBILIDAD_MOTO');
-    const iRuta=col('RUTA_CATALOGO_V6');
-    const iMarcaMoto=col('MARCA_MOTO_APLICACION');
-    const iModeloMoto=col('MODELO_MOTO_APLICACION');
-    const iTipoProd=col('TIPO_PRODUCTO');
+    const iCat=col('CATEGORIA'),iSub=col('SUBCATEGORIA'),iProd=col('PRODUCTO'),iMarca=col('MARCAS'),
+          iCod=col('CODIGO'),iDesc=col('DESCRIPCION'),iPrice=col('PRECIO'),iStock=col('STOCK'),
+          iImg=col('IMAGEN'),iFamily=col('FAMILIA_PRODUCTO'),iAppModel=col('APLICACION_MODELO'),
+          iColor=col('COLOR'),iTalle=col('TALLE'),iTerr=col('TERRENO'),iCompat=col('COMPATIBILIDAD_MOTO'),
+          iRuta=col('RUTA_CATALOGO_V6'),iMarcaMoto=col('MARCA_MOTO_APLICACION'),
+          iModeloMoto=col('MODELO_MOTO_APLICACION'),iTipoProd=col('TIPO_PRODUCTO');
 
     ALL=[];
     for(let i=1;i<rows.length;i++){
       const v=rows[i];
       if(!v||v.length<5)continue;
       const g=(idx)=>idx>=0&&idx<v.length?v[idx]:'';
-      const desc=g(iDesc);
-      const codigo=g(iCod);
+      const desc=g(iDesc),codigo=g(iCod);
       if(!desc&&!codigo)continue;
-
       ALL.push({
-        categoria: g(iCat),
-        subcategoria: g(iSub),
-        producto: g(iProd),
-        marca: g(iMarca),
-        codigo: codigo,
-        descripcion: desc,
-        precio: parsePrice(g(iPrice)),
-        stock: parseInt(g(iStock))||0,
-        imagen: g(iImg),
-        familia: g(iFamily),
-        aplicacion: g(iAppModel),
-        color: g(iColor),
-        talle: g(iTalle),
-        terreno: g(iTerr),
-        compat: g(iCompat),
-        rutaCatalogo: g(iRuta),
-        marcaMoto: g(iMarcaMoto),
-        modeloMoto: g(iModeloMoto),
-        tipoProducto: g(iTipoProd),
-        _idx: [desc,codigo,g(iMarca),g(iCat),g(iSub),g(iProd),g(iFamily),g(iAppModel),g(iColor),g(iTerr),g(iCompat),g(iMarcaMoto),g(iModeloMoto),g(iTipoProd)].join(' ').toLowerCase()
+        id: ALL.length,
+        categoria:g(iCat),subcategoria:g(iSub),producto:g(iProd),marca:g(iMarca),
+        codigo:codigo,descripcion:desc,precio:parsePrice(g(iPrice)),
+        stock:parseInt(g(iStock))||0,imagen:g(iImg),familia:g(iFamily),
+        aplicacion:g(iAppModel),color:g(iColor),talle:g(iTalle),terreno:g(iTerr),
+        compat:g(iCompat),rutaCatalogo:g(iRuta),marcaMoto:g(iMarcaMoto),
+        modeloMoto:g(iModeloMoto),tipoProducto:g(iTipoProd),
+        _idx:[desc,codigo,g(iMarca),g(iCat),g(iSub),g(iProd),g(iFamily),g(iAppModel),g(iColor),g(iTerr),g(iCompat),g(iMarcaMoto),g(iModeloMoto),g(iTipoProd)].join(' ').toLowerCase()
       });
     }
 
@@ -602,26 +597,24 @@ async function loadProducts(){
     buildSidebar();
     buildCategoryGrid();
     applyFilters();
+    renderRtech();
   }catch(e){
     console.error(e);
     document.getElementById('products').innerHTML='<div class="no-results"><i class="fas fa-exclamation-triangle"></i>Error al cargar. Recargá la página.</div>';
   }
 }
 
-// ── SIDEBAR BUILD ──
+// ── SIDEBAR ──
 function buildSidebar(){
   const sb=document.getElementById('sidebar');
   let html='<div class="sidebar-section"><div class="sidebar-title">Categorías</div><ul class="sidebar-cat">';
-
   const catCounts={};
   ALL.forEach(p=>{if(!catCounts[p.categoria])catCounts[p.categoria]=0;catCounts[p.categoria]++;});
-
   for(const cat of Object.keys(TAXONOMY)){
     const count=catCounts[cat]||0;
     if(!count)continue;
     const isActive=state.categoria===cat;
     html+=`<li><a class="${isActive?'active':''}" onclick="toggleSidebarCat('${cat.replace(/'/g,"\\'")}',event)">${cat} <span class="cnt">${count}</span></a>`;
-
     const subs=TAXONOMY[cat];
     if(Object.keys(subs).length){
       html+=`<ul class="sidebar-sub ${isActive?'open':''}">`;
@@ -630,16 +623,13 @@ function buildSidebar(){
         if(!subCount)continue;
         const subActive=state.subcategoria===sub;
         html+=`<li><a class="${subActive?'active':''}" onclick="toggleSidebarSub('${cat.replace(/'/g,"\\'")}','${sub.replace(/'/g,"\\'")}',event)">${sub} <span class="cnt">${subCount}</span></a>`;
-
-        // Producto level (3rd level)
         const prods=subs[sub];
         if(prods&&prods.length&&subActive){
           html+=`<ul class="sidebar-sub open" style="padding-left:10px">`;
           for(const prod of prods){
             const pCount=ALL.filter(p=>p.categoria===cat&&p.subcategoria===sub&&p.producto===prod).length;
             if(!pCount)continue;
-            const pActive=state.producto===prod;
-            html+=`<li><a class="${pActive?'active':''}" onclick="toggleSidebarProd('${cat.replace(/'/g,"\\'")}','${sub.replace(/'/g,"\\'")}','${prod.replace(/'/g,"\\'")}',event)" style="font-size:10px">${prod} <span class="cnt">${pCount}</span></a></li>`;
+            html+=`<li><a class="${state.producto===prod?'active':''}" onclick="toggleSidebarProd('${cat.replace(/'/g,"\\'")}','${sub.replace(/'/g,"\\'")}','${prod.replace(/'/g,"\\'")}',event)" style="font-size:10px">${prod} <span class="cnt">${pCount}</span></a></li>`;
           }
           html+='</ul>';
         }
@@ -652,7 +642,6 @@ function buildSidebar(){
   html+='</ul></div>';
   sb.innerHTML=html;
 }
-
 function toggleSidebarCat(cat,e){
   e&&e.preventDefault();
   if(state.categoria===cat){state.categoria=null;state.subcategoria=null;state.producto=null;}
@@ -671,8 +660,7 @@ function toggleSidebarSub(cat,sub,e){
 function toggleSidebarProd(cat,sub,prod,e){
   e&&e.preventDefault();
   state.categoria=cat;state.subcategoria=sub;
-  if(state.producto===prod)state.producto=null;
-  else state.producto=prod;
+  if(state.producto===prod)state.producto=null;else state.producto=prod;
   state.marca=null;state.color=null;state.talle=null;state.terreno=null;state.compatMoto=null;
   currentPage=1;buildSidebar();applyFilters();updateNav();
 }
@@ -719,13 +707,12 @@ function applyFilters(){
   buildSmartFilters();renderBreadcrumb();renderTitle();renderProducts();renderPagination();
 }
 
-// ── SMART FILTERS (contextual) ──
+// ── SMART FILTERS ──
 function buildSmartFilters(){
   const container=document.getElementById('smartFilters');
   const tagsContainer=document.getElementById('activeTags');
   let fHTML='',tHTML='';
   const hasAny=state.marca||state.color||state.talle||state.terreno||state.compatMoto||state.stockFilter;
-
   const brands={},colors={},talles={},terrenos={},compats={};
   filtered.forEach(p=>{
     if(p.marca)brands[p.marca]=(brands[p.marca]||0)+1;
@@ -735,29 +722,24 @@ function buildSmartFilters(){
     const cm=p.marcaMoto;
     if(cm&&cm!=='SIN DATO')compats[cm]=(compats[cm]||0)+1;
   });
-
   if(Object.keys(brands).length>1||state.marca)fHTML+=buildFG('Marca','marca',brands,state.marca);
   if(Object.keys(colors).length>1||state.color)fHTML+=buildFG('Color','color',colors,state.color);
   if(Object.keys(talles).length>1||state.talle)fHTML+=buildFG('Talle','talle',talles,state.talle);
   if(Object.keys(terrenos).length>1||state.terreno)fHTML+=buildFG('Terreno','terreno',terrenos,state.terreno);
   if(Object.keys(compats).length>1||state.compatMoto)fHTML+=buildFG('Moto','compatMoto',compats,state.compatMoto);
-
   fHTML+=`<div class="sf-group"><button class="sf-btn ${state.stockFilter?'active':''}" onclick="togglePanel(this)">Disponibilidad <i class="fas fa-chevron-down"></i></button><div class="sf-panel">
     <div class="sf-option ${!state.stockFilter?'selected':''}" onclick="setFilter('stockFilter',null)">Todos</div>
     <div class="sf-option ${state.stockFilter==='in'?'selected':''}" onclick="setFilter('stockFilter','in')">En stock</div>
     <div class="sf-option ${state.stockFilter==='low'?'selected':''}" onclick="setFilter('stockFilter','low')">Stock bajo (≤5)</div>
     <div class="sf-option ${state.stockFilter==='out'?'selected':''}" onclick="setFilter('stockFilter','out')">Sin stock</div>
   </div></div>`;
-
   if(hasAny)fHTML+=`<button class="sf-clear" onclick="clearAllFilters()"><i class="fas fa-times"></i> Limpiar filtros</button>`;
-
   if(state.marca)tHTML+=mkTag('Marca',state.marca,'marca');
   if(state.color)tHTML+=mkTag('Color',state.color,'color');
   if(state.talle)tHTML+=mkTag('Talle',state.talle,'talle');
   if(state.terreno)tHTML+=mkTag('Terreno',state.terreno,'terreno');
   if(state.compatMoto)tHTML+=mkTag('Moto',state.compatMoto,'compatMoto');
   if(state.stockFilter)tHTML+=mkTag('Stock',state.stockFilter==='in'?'En stock':state.stockFilter==='low'?'Bajo':'Sin stock','stockFilter');
-
   container.innerHTML=fHTML;tagsContainer.innerHTML=tHTML;
 }
 function mkTag(l,v,k){return `<span class="tag">${l}: ${v} <button onclick="setFilter('${k}',null)">×</button></span>`;}
@@ -778,13 +760,12 @@ function togglePanel(btn){
 }
 function setFilter(key,val){state[key]=val;currentPage=1;document.querySelectorAll('.sf-panel').forEach(p=>p.classList.remove('open'));applyFilters();}
 function clearAllFilters(){state.marca=null;state.color=null;state.talle=null;state.terreno=null;state.compatMoto=null;state.stockFilter=null;currentPage=1;applyFilters();}
-
 document.addEventListener('click',e=>{
   if(!e.target.closest('.sf-group'))document.querySelectorAll('.sf-panel').forEach(p=>p.classList.remove('open'));
   if(!e.target.closest('.search-wrapper'))document.getElementById('searchDropdown').classList.remove('active');
 });
 
-// ── BREADCRUMB ──
+// ── BREADCRUMB / TITLE ──
 function renderBreadcrumb(){
   const bc=document.getElementById('breadcrumb');
   let h=`<a onclick="navFilter(null,event)"><i class="fas fa-home"></i></a>`;
@@ -795,8 +776,6 @@ function renderBreadcrumb(){
   if(!state.categoria&&!state.search)h+=`<span>›</span><span>Todos los productos</span>`;
   bc.innerHTML=h;
 }
-
-// ── TITLE ──
 function renderTitle(){
   const el=document.getElementById('sectionTitle'),cnt=document.getElementById('productCount');
   if(state.search)el.textContent=`Resultados para "${state.search}"`;
@@ -831,6 +810,45 @@ function renderProducts(){
   }).join('');
 }
 
+// ── DESTACADOS RTECH (LIQUIDACIÓN) ──
+function renderRtech(){
+  const grid=document.getElementById('rtechGrid');
+  const cnt=document.getElementById('rtechCount');
+  const list=ALL.filter(p=>(p.marca||'').toUpperCase().includes('RTECH'));
+  cnt.textContent=list.length?`${list.length} producto${list.length!==1?'s':''}`:'';
+  if(!list.length){
+    grid.innerHTML='<div class="no-results" style="grid-column:1/-1"><i class="fas fa-star"></i><p>Próximamente productos RTECH destacados.</p></div>';
+    return;
+  }
+  const fb='https://via.placeholder.com/200x150/f9f9f9/ccc?text=RTECH';
+  grid.innerHTML=list.map(p=>{
+    const low=p.stock>0&&p.stock<=5;
+    return `<article class="product">
+      <span class="feat-badge">RTECH DESTACADO</span>
+      ${p.stock===0?'<span class="out-badge">SIN STOCK</span>':''}
+      <div class="product-image"><img src="${p.imagen||fb}" alt="${p.descripcion}" onerror="this.onerror=null;this.src='${fb}'"></div>
+      <div class="product-category">${p.categoria} › ${p.subcategoria}</div>
+      <h3>${p.descripcion}</h3>
+      <div class="brand-tag">${p.marca}</div>
+      <div class="code">Cód: ${p.codigo}</div>
+      <div class="stock-info ${p.stock===0||low?'low':''}">${p.stock===0?'SIN STOCK':low?`¡Solo ${p.stock}!`:`Stock: ${p.stock}`}</div>
+      <div class="price">$ ${money(p.precio)}</div>
+      ${p.stock>0?`<div class="qty"><input id="rq${p.id}" value="1" type="number" min="1" max="${p.stock}"><button onclick="chgQ('rq${p.id}',1)">▲</button><button onclick="chgQ('rq${p.id}',-1)">▼</button></div><button class="buy" onclick="addToCartById(${p.id},'rq${p.id}')"><i class="fas fa-shopping-cart"></i> COMPRAR</button>`:`<button class="buy out" disabled>SIN STOCK</button>`}
+      <div class="tax">c/iva</div>
+    </article>`;
+  }).join('');
+}
+function addToCartById(id,qid){
+  const p=ALL.find(x=>x.id===id);
+  if(!p)return;
+  const qty=parseInt(document.getElementById(qid)?.value)||1;
+  const ex=cart.find(i=>i.codigo===p.codigo);
+  if(ex)ex.qty+=qty;else cart.push({...p,qty});
+  renderCart();
+  document.getElementById('cart').classList.add('open');
+  document.getElementById('overlay').classList.add('active');
+}
+
 // ── PAGINATION ──
 function renderPagination(){
   const c=document.getElementById('pagination'),total=Math.ceil(filtered.length/PER_PAGE);
@@ -845,11 +863,10 @@ function renderPagination(){
 }
 function goPage(p){currentPage=p;renderProducts();renderPagination();window.scrollTo({top:document.querySelector('.main-layout').offsetTop-20,behavior:'smooth'});}
 
-// ── SMART SEARCH ENGINE ──
+// ── SMART SEARCH ──
 const searchInput=document.getElementById('searchInput');
 const searchDrop=document.getElementById('searchDropdown');
 let searchTimer=null;
-
 searchInput.addEventListener('input',function(){
   clearTimeout(searchTimer);
   const q=this.value.trim();
@@ -860,7 +877,6 @@ searchInput.addEventListener('keydown',function(e){
   if(e.key==='Enter'){e.preventDefault();executeSearch();}
   if(e.key==='Escape')searchDrop.classList.remove('active');
 });
-
 function showSuggestions(q){
   const terms=q.toLowerCase().split(/\s+/);
   const matches=ALL.filter(p=>terms.every(t=>p._idx.includes(t))).slice(0,8);
@@ -914,12 +930,22 @@ function buildCategoryGrid(){
   }).join('');
 }
 
+// ── MARQUESINA: duplicar grupo para loop infinito ──
+(function initMarquee(){
+  const track=document.getElementById('brandsTrack');
+  const group=document.getElementById('brandsGroup');
+  const clone=group.cloneNode(true);
+  clone.removeAttribute('id');
+  clone.setAttribute('aria-hidden','true');
+  track.appendChild(clone);
+})();
+
 // ── CAROUSEL ──
 let slideIdx=0;
 function goToSlide(i){slideIdx=i;document.getElementById('carouselTrack').style.transform=`translateX(-${i*25}%)`;document.querySelectorAll('.carousel-dots i').forEach((d,j)=>d.classList.toggle('active',j===i));}
 setInterval(()=>{slideIdx=(slideIdx+1)%4;goToSlide(slideIdx)},4500);
 
-// ── CART ──
+// ── CART ─
 function chgQ(id,d){const x=document.getElementById(id);x.value=Math.max(1,Math.min(parseInt(x.max)||999,Number(x.value)+d));}
 function addToCart(gi){
   const p=filtered[gi],qEl=document.getElementById(`q${gi}`),qty=parseInt(qEl?.value)||1;
@@ -954,9 +980,10 @@ function completePurchase(){
   document.getElementById('checkoutForm').classList.remove('active');document.getElementById('checkoutBtn').style.display='block';
 }
 
-// ── INIT ──
+// ── INIT ─
 renderCart();
 loadProducts();
 </script>
 </body>
 </html>
+
